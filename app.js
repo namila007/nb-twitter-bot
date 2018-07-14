@@ -1,46 +1,19 @@
-const auth = require('./auth.js')
-const twit = require('twit')
+const express = require('express')
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const morgan = require('morgan')
+const config = require('./config.js')
 
+const app = express()
 
-const twitter = new twit(auth)
+app.use(morgan('combined'))
+app.use(bodyParser.json())
+app.use(cors())
 
-
-// twitter.post('statuses/update', { status: 'hello world1!' }, function(err, data, response) {
-//     console.log(data)
-//   })
-
-  var params = {
-    q: 'from%3Anamila007',
-    count: 3,
-    result_type: 'recent',
-    lang: 'en'
-  }
-
-  var getmine = {
-    screen_name: 'namila007',
-    count: 5
-  }
-
-twitter.get('search/tweets', params, function(err, data, response) {
-    if(!err){
-        var i=0;
-        while(i <3){
-            console.log(data.statuses[i].text)
-            i++
-        }
-    } else {
-      console.log(err)
-    }
-  })
-
-//   twitter.get('statuses/user_timeline', params, function(err, data, response) {
-//     if(!err){
-        
-//             console.log('-----')
-//             console.log(data)
-           
-        
-//     } else {
-//       console.log(err)
-//     }
-//   })
+app.post('/webhook/tweets',function (req, res){
+    console.log('~~new tweet~~')
+    console.log(req.body)
+    res.status(200).send()
+})
+app.listen(config.port)
+exports.app = app
