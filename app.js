@@ -19,7 +19,7 @@ app.post('/webhook/tweets',function (req, res){
 app.listen(config.port, config.host, (err) => {
       if (err) {
         console.log(`Error : ${err}`)
-        process.exit(-1)
+        
       }
   
       console.log(` running on http://${config.host}:${config.port}`)
