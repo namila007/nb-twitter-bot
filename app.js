@@ -17,6 +17,10 @@ app.post('/webhook/tweets',function (req, res){
     res.status(200).send()
 })
 
+app.get('/', function(req, res){
+    res.status(200).send({"status": "ok"})
+})
+
 app.listen(config.port, config.host, (err) => {
       if (err) {
         console.log(`Error : ${err}`)
