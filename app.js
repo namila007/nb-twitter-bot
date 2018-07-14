@@ -33,14 +33,14 @@ twitter.get('search/tweets', params, function(err, data, response) {
     }
   })
 
-  twitter.get('statuses/user_timeline', params, function(err, data, response) {
-    if(!err){
+//   twitter.get('statuses/user_timeline', params, function(err, data, response) {
+//     if(!err){
         
-            console.log('-----')
-            console.log(data)
+//             console.log('-----')
+//             console.log(data)
            
         
-    } else {
-      console.log(err)
-    }
-  })
+//     } else {
+//       console.log(err)
+//     }
+//   })
