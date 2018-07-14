@@ -15,5 +15,14 @@ app.post('/webhook/tweets',function (req, res){
     console.log(req.body)
     res.status(200).send()
 })
-app.listen(config.port)
+
+app.listen(config.port, config.host, (err) => {
+      if (err) {
+        console.log(`Error : ${err}`)
+        process.exit(-1)
+      }
+  
+      console.log(` running on http://${config.host}:${config.port}`)
+    })
+
 exports.app = app
