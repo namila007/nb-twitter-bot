@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
 const config = require('./config.js')
-
+const twitter = require('./twitter')
 const app = express()
 
 app.use(morgan('combined'))
@@ -12,7 +12,8 @@ app.use(cors())
 
 app.post('/webhook/tweets',function (req, res){
     console.log('~~new tweet~~')
-    console.log(req.body)
+    console.log(req.body.link)
+    twitter(req.body.link)
     res.status(200).send()
 })
 
