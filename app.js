@@ -11,7 +11,7 @@ const twitter = new twit(auth)
 
   var params = {
     q: 'from%3Anamila007',
-    count: 10,
+    count: 3,
     result_type: 'recent',
     lang: 'en'
   }
@@ -24,8 +24,8 @@ const twitter = new twit(auth)
 twitter.get('search/tweets', params, function(err, data, response) {
     if(!err){
         var i=0;
-        while(i <10){
-            console.log(data.statuses[i].text)
+        while(i <3){
+            console.log(data[i].text)
             i++
         }
     } else {
