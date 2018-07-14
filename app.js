@@ -18,14 +18,14 @@ const twitter = new twit(auth)
 
   var getmine = {
     screen_name: 'namila007',
-    count: 2
+    count: 5
   }
 
 twitter.get('search/tweets', params, function(err, data, response) {
     if(!err){
         var i=0;
         while(i <3){
-            console.log(data[i].text)
+            console.log(data.statuses[i].text)
             i++
         }
     } else {
@@ -35,8 +35,8 @@ twitter.get('search/tweets', params, function(err, data, response) {
 
   twitter.get('statuses/user_timeline', params, function(err, data, response) {
     if(!err){
-        var i=0;
         
+            console.log('-----')
             console.log(data)
            
         
