@@ -1,10 +1,11 @@
 const twit = require('twit')
-const config = require('./config.js')
+const config = require('./config/config')
+
+console.log(config)
+
 const twitter = new twit(config)
 
-function extractid(link) {
 
-}
 
 
 module.exports = (link)=> {
@@ -29,26 +30,3 @@ module.exports = (link)=> {
         })   
 }
 
-//   var params = {
-//     q: 'from%3Anamila007',
-//     count: 3,
-//     result_type: 'recent',
-//     lang: 'en'
-//   }
-
-//   var getmine = {
-//     screen_name: 'namila007',
-//     count: 5
-//   }
-
-// twitter.get('search/tweets', params, function(err, data, response) {
-//     if(!err){
-//         var i=0;
-//         while(i <3){
-//             console.log(data.statuses[i].text)
-//             i++
-//         }
-//     } else {
-//       console.log(err)
-//     }
-//   })
