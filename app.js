@@ -4,23 +4,22 @@ const cors = require('cors')
 const morgan = require('morgan')
 const config = require('./config/config.js')
 const twitter = require('./stream.js')
+const count = require('./tweetcount.js')
+const path = require('path')
+const http = require('http')
 const app = express()
 
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-//removed webhooked
+//http server to serve view files
+const httpServer = http.Server(app);
+app.use(express.static(__dirname + '/views/'))
 
-// app.post('/webhook/tweets',function (req, res){
-//     console.log('~~new tweet~~')
-//     console.log(req.body.link)
-//     twitter(req.body.link)
-//     res.status(200).send()
-// })
 
 app.get('/', function(req, res){
-    res.status(200).send({"status": "ok"})
+    res.status(200).sendFile(path.join(__dirname + '/views/index.html'))
 })
 
 //ping to keep sit alive
@@ -31,7 +30,16 @@ app.get('/ping', function(req, res){
 //streaming on
 twitter
 
+//get tweet counts of the bot
+app.get('/count', async function (req, res){
+    count(1018580921740492800,function(data){
+        console.log(data)
+        res.send({data})
+    })
+})
+    
 
+    
 app.listen(config.port, config.host, (err) => {
       if (err) {
         console.log(`Error : ${err}`)
