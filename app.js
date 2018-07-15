@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
-const config = require('./config.js')
+const config = require('./config/config.js')
 const twitter = require('./twitter')
 const app = express()
 

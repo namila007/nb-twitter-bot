@@ -1,5 +1,5 @@
 const twit = require('twit')
-const config = require('./config.js')
+const config = require('./config/config.js')
 const twitter = new twit(config)
 
 function extractid(link) {
