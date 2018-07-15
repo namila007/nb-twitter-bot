@@ -1,5 +1,6 @@
 const request = require('request')
-const config = require('../../config/config')
+const config  = require('./config/config.js');
+
 
 
 // twitter authentication
@@ -25,8 +26,8 @@ var request_options = {
   }
 }
 
-console.log(config)
-// POST request to create webhook config
-// request.post(request_options, function (error, response, body) {
-//   console.log(body)
-// })
+console.log(request_options)
+//POST request to create webhook config
+request.post(request_options, function (error, response, body) {
+  console.log(body)
+})
