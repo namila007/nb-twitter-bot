@@ -3,12 +3,13 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
 const config = require('./config/config.js')
-const twitter = require('./twitter')
+const twitter = require('./twitter/twitter')
 const app = express()
 
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
+
 
 app.post('/webhook/tweets',function (req, res){
     console.log('~~new tweet~~')

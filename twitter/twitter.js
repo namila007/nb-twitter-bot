@@ -1,10 +1,11 @@
 const twit = require('twit')
-const config = require('./config/config.js')
+const config = require('../config/config')
+
+console.log(config)
+
 const twitter = new twit(config)
 
-function extractid(link) {
 
-}
 
 
 module.exports = (link)=> {
