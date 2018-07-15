@@ -132,7 +132,7 @@
 		$.get( "/count", function( data ) {
 			console.log(data)
 				 document.getElementById('count').innerText  = data.data
-				
+				console.log(data.data)
 				$('.count').each(function () {
 					$(this).prop('Counter',0).animate({
 						Counter: $(this).text()
