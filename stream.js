@@ -4,17 +4,18 @@ const T = new twit(config)
 
 
 
-var users = [ '20523325'] //my user id
+var users = [ '20523325'] //my user id, can give more ['xxx','yyy']
 
 //starting stream
 var stream = T.stream('statuses/filter', { follow: users }) 
 
 stream.on('tweet', function (tweet) {
+  
     console.log('New tweet: '+ tweet.id_str)
     console.log('Text: '+tweet.text)
 
-    //send rt and likes<3
-   if(!tweet.retweeted && !tweet.favorited){
+    //send rt and likes<3 (only users tweets)
+   if(!tweet.retweeted && !tweet.favorited && tweet.user.id == 20523325 ){
     T.post(
         'statuses/retweet/:id',{id: tweet.id_str},(err, response) => {
           if (err) {
