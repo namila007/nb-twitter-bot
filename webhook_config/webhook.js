@@ -1,11 +1,12 @@
-var request = require('request')
-var config = require('../config/config')
+const request = require('request')
+const config  = require('./config/config.js');
+
 
 
 // twitter authentication
 var twitter_oauth = {
   consumer_key: config.consumer_key,
-  consumer_secret: consumer_secret,
+  consumer_secret: config.consumer_secret,
   token: config.access_token,
   token_secret: config.access_token_secret
 }
@@ -25,7 +26,8 @@ var request_options = {
   }
 }
 
-// POST request to create webhook config
+console.log(request_options)
+//POST request to create webhook config
 request.post(request_options, function (error, response, body) {
   console.log(body)
 })
