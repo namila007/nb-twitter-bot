@@ -33,7 +33,7 @@ twitter
 //get tweet counts of the bot
 app.get('/count', async function (req, res){
     count(1018580921740492800,function(data){
-        console.log(data)
+        //console.log(data)
         res.send({data})
     })
 })
