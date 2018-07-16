@@ -1,9 +1,9 @@
 
 # NB-Twitter Bot
 ![nb bot](https://nb-twitter-bot.herokuapp.com/main.png)
-```
+
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-```
+
 ## Intro
 
 A twitter bot made by nodejs, using twitter api
