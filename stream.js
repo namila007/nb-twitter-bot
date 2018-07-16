@@ -3,8 +3,8 @@ const config = require('./config/config')
 const T = new twit(config)
 
 
-var users = [ '20523325'] //following user id, can give more ['xxx','yyy']
-var botid = 1018580921740492800  //bot user id
+var users = [config.userid]//following user id, can give more ['xxx','yyy']
+var botid = config.botid  //bot user id
 
 //starting stream
 var stream = T.stream('statuses/filter', { follow: users }) 

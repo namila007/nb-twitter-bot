@@ -7,6 +7,7 @@ module.exports = {
     access_token_secret: process.env.access_token_secret,
     timeout_ms: process.env.timeout_ms,
     port: process.env.PORT,
-    host: process.env.HOST
-
+    host: process.env.HOST,
+    userid: process.env.userid,
+    botid: process.env.botid
 }
