@@ -2,7 +2,7 @@
   "name": "NB Twitter bot",
   "description": "A simple twitter bot",
   "repository": "https://github.com/namila007/nb-twitter-bot",
-  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "logo": "https://nb-twitter-bot.herokuapp.com/main.png",
   "keywords": ["node", "express", "twitter", "bot"],
   "env": {
         "consumer_key": {
