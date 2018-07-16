@@ -14,9 +14,11 @@ A twitter bot made by nodejs, using twitter api
  2. Clone the git
  3. make `.env` file and copy `.env.example` and add the relevant keys from twitter app 
  4. run `npm install` 
- 5.  change `var  users  = [ '20523325']` in `streaming.js` file and add user id to monitor. example: ` var  users  = [ 'XXXXX' , 'YYYYYY']`
+ 5.  if you want to add more users change `var  users  = [ config.userid ]` in `streaming.js` file and add user ids to monitor. example: ` var  users  = [ 'XXXXX' , 'YYYYYY']`
  6. run `npm start`
  
 
 ## Deploy
-User can deploy this to heroku. Create `  Config Vars` for each in `.env` file and deply
+User can deploy this to heroku. Create `  Config Vars` for each in `.env` file and deploy or simply press DEPLOY button. in `.env` files you cant add arrays.so need to add ids in the code
+
+
