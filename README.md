@@ -1,2 +1,2 @@
-# twitter-bot-test
-twitter bot using npm 
+# Twitter Bot
+This is a twitter bot using npm 
