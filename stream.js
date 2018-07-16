@@ -38,8 +38,24 @@ stream.on('tweet', function (tweet) {
         }
 
 })
-
-
+//'1018580921740492800' nb_bot007 id
+//getting mentions and replying to the relevent thread
+var reply = T.stream('statuses/filter', { track: 'nb_bot007'  }) 
+reply.on('tweet', function(tweet){
+  console.log("Hola! got a mention " +tweet.id_str)
+  //here tweet id is not working, so try tweet string if
+  if(tweet.user.id != 1018580921740492800) { 
+    T.post('statuses/update', { 
+      
+      in_reply_to_status_id : tweet.id_str, 
+      status: 'Hi, @'+tweet.user.screen_name+' thanks for mentioning me, Have a good day! 😊'
+      
+    }, function(err, data, response) {
+      if(err) console.log("Didn't replied :("+err)
+      console.log("Replied to mention :)")
+    })
+  }
+})
 
 module.exports = stream
 

@@ -17,7 +17,7 @@ app.use(cors())
 const httpServer = http.Server(app);
 app.use(express.static(__dirname + '/views/'))
 
-
+//root
 app.get('/', function(req, res){
     res.status(200).sendFile(path.join(__dirname + '/views/index.html'))
 })
@@ -39,7 +39,7 @@ app.get('/count', async function (req, res){
 })
     
 
-    
+  //start listening  
 app.listen(config.port, config.host, (err) => {
       if (err) {
         console.log(`Error : ${err}`)
