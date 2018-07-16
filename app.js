@@ -49,4 +49,4 @@ app.listen(config.port, config.host, (err) => {
       console.log(` running on http://${config.host}:${config.port}`)
     })
 
-exports.app = app
+module.exports = app
