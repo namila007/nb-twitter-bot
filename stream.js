@@ -44,7 +44,7 @@ var reply = T.stream('statuses/filter', { track: 'nb_bot007'  })
 reply.on('tweet', function(tweet){
   console.log("Hola! got a mention " +tweet.id_str)
   //here tweet id is not working, so try tweet string if
-  if(tweet.user.id != 1018580921740492800) { 
+  if(tweet.user.id != 1018580921740492800 && twitter.) { 
     T.post('statuses/update', { 
       
       in_reply_to_status_id : tweet.id_str, 
