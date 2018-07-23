@@ -39,14 +39,6 @@ app.get('/count', async function (req, res){
     })
 })
 
-app.get('/quote', async function (req, res){
-    quotes(function(data){
-        res.send({quote: data.data.quote,
-            author: data.data.author
-        })
-    })
-})
-
   //start listening  
 app.listen(config.port, config.host, (err) => {
       if (err) {

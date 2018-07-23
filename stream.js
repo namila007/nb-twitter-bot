@@ -1,7 +1,7 @@
 const twit = require('twit')
 const config = require('./config/config')
 const T = new twit(config)
-const axios = require('axios')
+
 
 var users = [config.userid]//following user id, can give more ['xxx','yyy']
 var botid = config.botid  //bot user id
@@ -15,8 +15,8 @@ stream.on('tweet', function (tweet) {
     console.log('Text: '+tweet.text)
 
     //send rt and likes<3 (only users tweets)
-    //only rt n fav monitoring userid 20523325 and not to any replies
-   if(!tweet.retweeted && !tweet.favorited && tweet.user.id == 20523325 && tweet.in_reply_to_user_id == null ){
+    //only rt n fav monitoring userid  and not to any replies
+   if(!tweet.retweeted && !tweet.favorited && tweet.user.id == users && tweet.in_reply_to_user_id == null ){
     T.post(
         'statuses/retweet/:id',{id: tweet.id_str},(err, response) => {
           if (err) {
@@ -49,20 +49,17 @@ reply.on('tweet', function(tweet){
   if(tweet.user.id != botid && tweet.in_reply_to_status_id == null) { 
     //sending random quote to the mention
     //quote is sliced to 210 max length
-    axios.get('http://twibot.projects.namila.me/quote').then((res)=>{
-      console.log(res.data)
+    
       T.post('statuses/update', { 
         
         in_reply_to_status_id : tweet.id_str, 
-        status: '"'+(res.data.quote).substring(0,220)+`" -`+res.data.author+'\nHave a good day !😊'
+        status: 'Hi @'+tweet.user.screen_name + ', thanks for mentioning me.Have a great day !😊'
         
       }, function(err, data, response) {
         if(err) console.log("Didn't replied :( "+err)
         console.log("Replied to mention :)")
       })
-    }).catch((err) =>{
-      console.log(err)
-    })
+    
    
     
   }
