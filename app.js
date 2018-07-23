@@ -8,7 +8,6 @@ const tweetcount = require('./tweetcount.js')
 const path = require('path')
 const http = require('http')
 const app = express()
-const quotes = require('./randomquote')
 
 app.use(morgan('combined'))
 app.use(bodyParser.json())
