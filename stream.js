@@ -48,12 +48,12 @@ reply.on('tweet', function(tweet){
   //replying to all tweets except bots userid 1018580921740492800
   if(tweet.user.id != botid && tweet.in_reply_to_status_id == null) { 
     
-    axios.get('http://twibot.projects.namila.me/quote').then((quote)=>{
-      console.log(quote)
+    axios.get('http://twibot.projects.namila.me/quote').then((res)=>{
+      console.log(res.data)
       T.post('statuses/update', { 
       
         in_reply_to_status_id : tweet.id_str, 
-        status: '"'+quote.quote+`" -`+quote.author+'\nHave a good day, @'+tweet.user.screen_name+'! 😊'
+        status: '"'+(res.data.quote).substring(0,210)+`" -`+res.data.author+'\nHave a good day, @'+tweet.user.screen_name+'! 😊'
         
       }, function(err, data, response) {
         if(err) console.log("Didn't replied :( "+err)
