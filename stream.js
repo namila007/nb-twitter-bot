@@ -15,8 +15,8 @@ stream.on('tweet', function (tweet) {
     console.log('Text: '+tweet.text)
 
     //send rt and likes<3 (only users tweets)
-    //only rt n fav monitoring userid 20523325
-   if(!tweet.retweeted && !tweet.favorited && tweet.user.id == 20523325 && in_reply_to_user_id == null ){
+    //only rt n fav monitoring userid 20523325 and not to any replies
+   if(!tweet.retweeted && !tweet.favorited && tweet.user.id == 20523325 && tweet.in_reply_to_user_id == null ){
     T.post(
         'statuses/retweet/:id',{id: tweet.id_str},(err, response) => {
           if (err) {
