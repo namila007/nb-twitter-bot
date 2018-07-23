@@ -48,7 +48,7 @@ reply.on('tweet', function(tweet){
   //replying to all tweets except bots userid 1018580921740492800
   if(tweet.user.id != botid && tweet.in_reply_to_status_id == null) { 
     
-    axios.get('/quote').then((quote)=>{
+    axios.get('http://twibot.projects.namila.me/quote').then((quote)=>{
       console.log(quote)
       T.post('statuses/update', { 
       
