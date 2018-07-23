@@ -1,7 +1,7 @@
 const twit = require('twit')
 const config = require('./config/config')
 const T = new twit(config)
-
+const axios = require('axios')
 
 var users = [config.userid]//following user id, can give more ['xxx','yyy']
 var botid = config.botid  //bot user id
@@ -47,17 +47,27 @@ reply.on('tweet', function(tweet){
   //here tweet id is not working, so try tweet string if
   //replying to all tweets except bots userid 1018580921740492800
   if(tweet.user.id != botid && tweet.in_reply_to_status_id == null) { 
-    T.post('statuses/update', { 
+    
+    axios.get('/quote').then((quote)=>{
+      console.log(quote)
+      T.post('statuses/update', { 
       
-      in_reply_to_status_id : tweet.id_str, 
-      status: 'Hi, @'+tweet.user.screen_name+' thanks for mentioning me, Have a good day! 😊'
-      
-    }, function(err, data, response) {
-      if(err) console.log("Didn't replied :("+err)
-      console.log("Replied to mention :)")
+        in_reply_to_status_id : tweet.id_str, 
+        status: '"'+quote.quote+`" -`+quote.author+'\nHave a good day, @'+tweet.user.screen_name+'! 😊'
+        
+      }, function(err, data, response) {
+        if(err) console.log("Didn't replied :( "+err)
+        console.log("Replied to mention :)")
+      })
+    }).catch((err) =>{
+      console.log(err)
     })
+   
+    
   }
 })
+
+
 
 module.exports = stream
 

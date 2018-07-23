@@ -8,6 +8,7 @@ const tweetcount = require('./tweetcount.js')
 const path = require('path')
 const http = require('http')
 const app = express()
+const quotes = require('./randomquote')
 
 app.use(morgan('combined'))
 app.use(bodyParser.json())
@@ -37,7 +38,14 @@ app.get('/count', async function (req, res){
         res.send({data})
     })
 })
-    
+
+app.get('/quote', async function (req, res){
+    quotes(function(data){
+        res.send({quote: data.data.quote,
+            author: data.data.author
+        })
+    })
+})
 
   //start listening  
 app.listen(config.port, config.host, (err) => {
