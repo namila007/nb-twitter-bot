@@ -47,11 +47,12 @@ reply.on('tweet', function(tweet){
   //here tweet id is not working, so try tweet string if
   //replying to all tweets except bots userid 1018580921740492800
   if(tweet.user.id != botid && tweet.in_reply_to_status_id == null) { 
-    
+    //sending random quote to the mention
+    //quote is sliced to 210 max length
     axios.get('http://twibot.projects.namila.me/quote').then((res)=>{
       console.log(res.data)
       T.post('statuses/update', { 
-      
+        
         in_reply_to_status_id : tweet.id_str, 
         status: '"'+(res.data.quote).substring(0,210)+`" -`+res.data.author+'\nHave a good day, @'+tweet.user.screen_name+'! 😊'
         
