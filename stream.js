@@ -54,7 +54,7 @@ reply.on('tweet', function(tweet){
       T.post('statuses/update', { 
         
         in_reply_to_status_id : tweet.id_str, 
-        status: '"'+(res.data.quote).substring(0,210)+`" -`+res.data.author+'\nHave a good day, @'+tweet.user.screen_name+'! 😊'
+        status: '"'+(res.data.quote).substring(0,220)+`" -`+res.data.author+'\nHave a good day !😊'
         
       }, function(err, data, response) {
         if(err) console.log("Didn't replied :( "+err)
