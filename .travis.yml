@@ -1,4 +1,7 @@
 language: node_js
 node_js:
-  - "9"
-script: npm run test 
+  - "8"
+script: npm run test
+cache:
+  directories:
+    - $HOME/.npm 

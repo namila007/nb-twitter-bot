@@ -1,5 +1,5 @@
 const twit = require('twit')
-const config = require('./config/config')
+const config = require('../config/config')
 const T = new twit(config)
 
 //function to get tweetcounts

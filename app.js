@@ -3,8 +3,8 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
 const config = require('./config/config.js')
-const twitter = require('./stream.js')
-const tweetcount = require('./tweetcount.js')
+const twitter = require('./js/stream.js')
+const tweetcount = require('./js/tweetcount.js')
 const path = require('path')
 const http = require('http')
 const app = express()
@@ -26,9 +26,6 @@ app.get('/', function(req, res){
 app.get('/ping', function(req, res){
     res.status(200).send({"status": "ok"})
 })
-
-//streaming on
-twitter
 
 //get tweet counts of the bot
 app.get('/count', async function (req, res){

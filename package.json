@@ -1,29 +1,27 @@
 {
-  "name": "breakingnews-bot",
-  "version": "1.0.0",
-  "description": "twitter bot to alert sl breaking news",
+  "name": "A-Personal-Tweet-Bot",
+  "version": "2.0.0",
+  "description": "twitter bot follows your tweets and RT+Like",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "mocha --exit test.js "
+    "test": "mocha --exit ./tests/test.js "
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/namila007/BreakingNews-bot.git"
+    "url": "git+https://github.com/namila007/nb-twitter-bot"
   },
   "keywords": [
     "twitter",
-    "bot",
-    "srilanka",
-    "breaking"
+    "bot"
   ],
   "author": "Namila Bandara",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/namila007/BreakingNews-bot/issues"
+    "url": "https://github.com/namila007/nb-twitter-bot/issues"
   },
-  "homepage": "https://github.com/namila007/BreakingNews-bot#readme",
+  "homepage": "https://github.com/namila007/nb-twitter-bot#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
