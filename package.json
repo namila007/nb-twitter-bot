@@ -25,7 +25,7 @@
   "dependencies": {
     "axios": "^0.18.1",
     "body-parser": "^1.18.3",
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
     "chai-http": "^4.0.0",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
